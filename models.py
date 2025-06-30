@@ -1,5 +1,6 @@
 from sqlalchemy import Table, Column, Integer, String, Float
 from database import metadata
+from sqlalchemy import ForeignKey
 
 products = Table(
     "products",
@@ -17,3 +18,15 @@ users = Table(
     Column("email", String, unique=True, index=True),
     Column("hashed_password", String)
 )
+
+
+
+
+cart = Table(
+    "cart",
+    metadata,
+    Column("id", Integer, primary_key=True),
+    Column("product_id", Integer, ForeignKey("products.id")),
+    Column("quantity", Integer)
+)
+

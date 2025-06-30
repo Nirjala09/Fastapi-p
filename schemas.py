@@ -12,3 +12,12 @@ class UserCreate(BaseModel):
 class UserOut(BaseModel):
     id: int
     email: EmailStr
+    
+class CartItemCreate(BaseModel):
+    product_id: int
+    quantity: int
+
+class CartItemOut(BaseModel):
+    id: int
+    product_id: int
+    quantity: int
